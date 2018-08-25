@@ -2,6 +2,7 @@ package ui;
 
 
 import model.Drawing;
+import model.Rectangle;
 import model.Shape;
 import sound.MidiSynth;
 import ui.tools.*;
@@ -151,8 +152,11 @@ public class DrawingEditor extends JFrame {
 		toolArea.setSize(new Dimension(0, 0));
 		add(toolArea, BorderLayout.SOUTH);
 
-        ShapeTool rectTool = new ShapeTool(this, toolArea);
+        RectangleTool rectTool = new RectangleTool(this, toolArea);
         tools.add(rectTool);
+
+        OvalTool ovalTool = new OvalTool(this, toolArea);
+        tools.add(ovalTool);
 
         MoveTool moveTool = new MoveTool(this, toolArea);
         tools.add(moveTool);
@@ -170,6 +174,7 @@ public class DrawingEditor extends JFrame {
         tools.add(playDrawingTool);
 
         setActiveTool(rectTool);
+        setActiveTool(ovalTool);
 	}
 
 	public static void main(String args[]) {
